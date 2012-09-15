@@ -1,0 +1,35 @@
+diff -aurN slim-1.3.4.orig/CMakeLists.txt slim-1.3.4/CMakeLists.txt
+--- slim-1.3.4.orig/CMakeLists.txt	2012-09-14 12:34:19.901832138 +0200
++++ slim-1.3.4/CMakeLists.txt	2012-09-14 12:37:43.743134173 +0200
+@@ -23,7 +23,7 @@
+ 
+ set(CMAKE_INSTALL_PREFIX "/usr/local" CACHE PATH "Installation Directory")
+ set(PKGDATADIR "${CMAKE_INSTALL_PREFIX}/share/slim")
+-set(SYSCONFDIR "/etc")
++set(SYSCONFDIR "/etc/slim")
+ set(MANDIR "${CMAKE_INSTALL_PREFIX}/share/man")
+ 
+ set(SLIM_DEFINITIONS)
+@@ -42,8 +42,8 @@
+ set(SLIM_DEFINITIONS ${SLIM_DEFINITIONS} "-DSYSCONFDIR=\"${SYSCONFDIR}\"")
+ 
+ # Flags
+-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -g -O2" )
+-set(CMAKE_CPP_FLAGS "${CMAKE_CPP_FLAGS} -Wall -g -O2" )
++set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -g" )
++set(CMAKE_CPP_FLAGS "${CMAKE_CPP_FLAGS} -Wall -g" )
+ 
+ # source 
+ set(slim_srcs
+diff -aurN slim-1.3.4.orig/slim.1 slim-1.3.4/slim.1
+--- slim-1.3.4.orig/slim.1	2012-09-14 12:34:19.901832138 +0200
++++ slim-1.3.4/slim.1	2012-09-14 12:38:09.296055092 +0200
+@@ -43,7 +43,7 @@
+ Please refer to documentation of your Operating System to make \fBslim\fP
+ automatically startup after the system boots.
+ .SH CONFIGURATION
+-Global configuration is stored in the /etc/slim.conf file. See the comments
++Global configuration is stored in the /etc/slim/slim.conf file. See the comments
+ inside the file for a detailed explanation of the \fIoptions\fP.
+ .SH USAGE AND SPECIAL USERNAMES
+ When started, \fBslim\fP will show a login panel; enter the username and
