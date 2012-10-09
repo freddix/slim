@@ -1,6 +1,6 @@
 [Unit]
 Description=SLiM Display Manager
-After=syslog.target systemd-user-sessions.service
+After=systemd-user-sessions.service
 
 # DM/X11 on tty1. We explicitly cancel the getty here to
 # avoid any races around that.
@@ -9,10 +9,13 @@ After=getty@tty1.service
 
 [Service]
 ExecStart=/usr/bin/slim -nodaemon
+ExecStop=/usr/bin/systemctl kill --kill-who=main slim.service
+ExecStopPost=/usr/bin/rm /run/slim/slim.lock
 StandardOutput=syslog
 Restart=always
 RestartSec=0
 
 [Install]
 WantedBy=graphical.target
+Alias=display-manager.service
 
