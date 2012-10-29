@@ -8,7 +8,7 @@ diff -aurN slim-1.3.3.orig/slim.conf slim-1.3.3/slim.conf
 +default_path        $PATH:/bin:/usr/bin:/usr/local/bin
  default_xserver     /usr/bin/X
 -#xserver_arguments   -dpi 75
-+xserver_arguments   vt01 -br
++xserver_arguments   -nolisten tcp -noreset -br vt1
  
  # Commands for halt, login, etc.
 -halt_cmd            /sbin/shutdown -h now
@@ -36,7 +36,7 @@ diff -aurN slim-1.3.3.orig/slim.conf slim-1.3.3/slim.conf
  # i.e. for freebsd use:
  # login_cmd           exec /bin/sh - ~/.xinitrc %session
 -login_cmd           exec /bin/bash -login ~/.xinitrc %session
-+login_cmd	systemd --user
++login_cmd	/usr/lib/systemd/systemd-user
  
  # Commands executed when starting and exiting a session.
  # They can be used for registering a X11 session with
