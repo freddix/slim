@@ -1,5 +1,6 @@
 [Unit]
 Description=SLiM Display Manager
+Documentation=man:slim(1)
 After=systemd-user-sessions.service
 
 # DM/X11 on tty1. We explicitly cancel the getty here to
@@ -14,6 +15,7 @@ ExecStopPost=/usr/bin/rm /run/slim/slim.lock
 StandardOutput=syslog
 Restart=always
 RestartSec=0
+IgnoreSIGPIPE=no
 
 [Install]
 WantedBy=graphical.target
