@@ -1,11 +1,11 @@
 Summary:	SLiM - a desktop-independent graphical login managaer
 Name:		slim
-Version:	1.3.4
-Release:	6
+Version:	1.3.5
+Release:	1
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://download.berlios.de/slim/%{name}-%{version}.tar.gz
-# Source0-md5:	ce53e44c1e4a2eacf5bb7688ee2a5de8
+# Source0-md5:	1153e6993f9c9333e4cf745411d03472
 Source1:	%{name}.service
 Source2:	%{name}.pamd
 Source3:	%{name}-tmpfiles.conf
@@ -16,9 +16,7 @@ Source12:	slim.theme
 Patch0:		%{name}-config.patch
 Patch1:		%{name}-build.patch
 Patch2:		%{name}-vt.patch
-Patch3:		%{name}-fix-glibc-segfault.patch
-Patch4:		%{name}-session-name.patch
-Patch5:		%{name}-libpng14.patch
+Patch3:		%{name}-session-name.patch
 URL:		http://slim.berlios.de/
 BuildRequires:	freetype-devel
 BuildRequires:	libjpeg-devel
@@ -44,9 +42,7 @@ from Login.app.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
-%patch3 -p0
-%patch4 -p1
-%patch5 -p1
+%patch3 -p1
 
 %build
 install -d build

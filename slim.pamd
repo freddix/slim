@@ -25,6 +25,12 @@ session    required     pam_limits.so
 # that was authenticated
 session    required   pam_loginuid.so
 
+# initialize session keyring
+session    optional     pam_keyinit.so force revoke
+
+# configure namespace for slim session
+session    required     pam_namespace.so
+
 # Standard Un*x account and session
 account    include      common-account
 password   include      common-password
